@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework',
+    'core',
     'diferentes',
 ]
 
@@ -102,6 +102,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTH_USER_MODEL = 'core.User'
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
@@ -116,9 +117,11 @@ USE_L10N = True
 
 USE_TZ = True
 
-CSRF_COOKIE_SECURE = True
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
+
+TELEGRAM_BOT_WEB = 'https://api.telegram.org/bot'
+TELEGRAM_BOT_TOKEN = '196133649:AAGwTkWBwo8pcwVjFMLOlFciT_5KFbJ3GSg'
+TELEGRAM_URL = TELEGRAM_BOT_WEB + TELEGRAM_BOT_TOKEN
