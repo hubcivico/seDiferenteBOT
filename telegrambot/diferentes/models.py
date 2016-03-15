@@ -17,6 +17,7 @@ class AbstractCreatedAt(models.Model):
 class UserStatus(models.Model):
 	user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, primary_key=True,)
 	status = models.IntegerField(default=0)
+	page = models.IntegerField(default=0)
 
 	class Meta:
 		verbose_name = 'Estado'
