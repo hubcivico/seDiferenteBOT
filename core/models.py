@@ -11,7 +11,6 @@ class User(AbstractBaseUser, PermissionsMixin):
 	username = models.CharField(max_length=100)
 	email = models.CharField(max_length=765, unique=True, null=True)
 	chat_id = models.IntegerField(unique=True, null=True)
-	first_name = models.TextField()
 	date_joined = models.DateTimeField(default=timezone.now)
 	is_active = models.BooleanField(default=True)
 	is_admin = models.BooleanField(default=False)
@@ -22,11 +21,10 @@ class User(AbstractBaseUser, PermissionsMixin):
 
 	objects = UserManager()
 
-	def get_short_name(self):
-		return self.username
+	def __str__(self):
+		return ''
 
 	def __unicode__(self):
-		return self.user
-
-	def __str__(self):
-		return str(self.chat_id) + ' - ' + str(self.username)
+		return self.username.decode('utf-8', 'ignore')
+	# def __str__(self):
+	# 	return self.username

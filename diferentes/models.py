@@ -18,6 +18,15 @@ class UserStatus(models.Model):
 	user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, primary_key=True,)
 	status = models.IntegerField(default=0)
 	page = models.IntegerField(default=0)
+	last_download = models.DateTimeField(default=now)
+
+	def __str__(self):
+		return ''
+
+	def __unicode__(self):
+		return u''
+	# def __str__(self):
+	# 	return self.user
 
 	class Meta:
 		verbose_name = 'Estado'
@@ -28,6 +37,14 @@ class Message(AbstractCreatedAt):
 	user = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name='Usuario', related_name='messages')
 	body = models.TextField(blank=True, null=False, max_length=150)
 	checked = models.BooleanField(default=False)
+
+	def __str__(self):
+		return ''
+
+	def __unicode__(self):
+		return u''
+	# def __str__(self):
+	# 	return self.user + ' - ' + self.body
 
 	class Meta:
 		verbose_name = 'Mensaje'
